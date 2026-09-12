@@ -153,9 +153,6 @@ pipeline with EconML (CausalForestDML) for heterogeneous effect estimation.
   auditing — informs this stage's limitations and robustness checks.
 
 ---
-Here's the updated README with the new section added (paste into your existing file, insert before "How the Pipeline Connects"):
-
-```markdown
 
 ## Closest Adjacent Work (Near-Misses, Not Full Pipeline Matches)
 
@@ -178,7 +175,6 @@ reasoning tasks, and RAudit audits reasoning validity independent of ground
 truth, no existing work chains groundedness verification, sycophancy
 detection, and calibration scoring into a single causal-audit pipeline —
 this integration is GATE-C's core contribution.
-```
 
 ## How the Pipeline Connects
 

@@ -1,0 +1,30 @@
+# Core LLM / API
+google-genai==2.22.0
+python-dotenv>=1.0.1
+
+# Embeddings & NLP
+sentence-transformers>=3.0.0
+spacy>=3.7.0
+
+# Retrieval
+exa-py>=1.7.0
+firecrawl-py>=1.4.0
+
+# NLI / classification
+transformers>=4.44.0
+torch>=2.3.0
+
+# Causal inference
+dowhy>=0.11.1
+econml>=0.15.1
+
+# Calibration
+netcal>=1.3.5
+scikit-learn>=1.5.0
+
+# Data handling
+pandas>=2.2.0
+numpy>=1.26.0
+
+# Testing
+pytest>=8.3.0

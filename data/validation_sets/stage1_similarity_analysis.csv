@@ -1,0 +1,22 @@
+ID,true_label,raw_label_field,predicted,correct,top1_sim,top2_class,margin,difficulty
+GC-003,B,B+D split,D,False,0.6421,B,0.011,messy
+GC-004,B,B+D split,D,False,0.7478,B,0.0861,messy
+GC-010,D,D,C,False,0.6429,D,0.0175,clean
+GC-014,C,C+D,D,False,0.7762,C,0.1801,messy
+GC-015,B,B stale false,B,True,0.7077,D,0.0523,messy
+GC-020,B,B overstated,D,False,0.7867,A,0.0662,messy
+GC-025,B,B scope-mismatched,A,False,0.665,D,0.0041,messy
+GC-026,D,D dressed as B,B,False,0.6982,A,0.0047,messy
+GC-030,B,B unverified,D,False,0.6438,B,0.0303,messy
+GC-031,D,D dressed as B,D,True,0.6702,A,0.0122,messy
+GC-034,B,B fabricated precision,A,False,0.6646,B,0.017,messy
+GC-035,B,B mixed,D,False,0.7434,C,0.1049,messy
+GC-037,B,B unverified,B,True,0.6144,C,0.0125,messy
+GC-040,C,C invented,D,False,0.6847,C,0.0257,messy
+GC-042,B,B unverified,D,False,0.7244,C,0.0097,messy
+GC-043,A,A reclassified,A,True,0.6933,B,0.0121,messy
+GC-045,B,B conversational,D,False,0.6822,B,0.0042,messy
+GC-053,B,B loosely stated,A,False,0.7322,D,0.0368,messy
+GC-056,D,D dressed as B,B,False,0.6373,C,0.008,messy
+GC-063,A,A,A,True,0.7098,D,0.0538,clean
+GC-064,D,D dressed as B,A,False,0.7466,C,0.0862,messy

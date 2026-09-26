@@ -204,3 +204,47 @@ This chaining — sycophancy classification feeding into a causal audit that
 traces *why* manipulation occurred, rather than only flagging *that* it
 did — is the project's core novel contribution; each individual technique
 is adapted from the literature above.
+
+
+## Stage 1 Classifier — Findings Log (Sept 2026)
+
+### Attempt 1: Semantic embeddings (bge-small-en-v1.5)
+- Approach: k-NN over prototype embeddings, cosine similarity + margin for abstention.
+- Result: 24% accuracy (5/21) on heldout set. Margin did NOT correlate with correctness
+  (incorrect predictions had higher median margin than correct ones) — unusable as an
+  abstention signal.
+- Diagnosis: topic-leakage diagnostic showed 62.5% of incorrect predictions matched a
+  same-source prototype, vs. 20% for correct predictions — confirming the model was
+  matching on topic/subject matter, not rhetorical claim-type. Semantic embeddings encode
+  "what is this about," not "what kind of claim is this" — the wrong axis for this taxonomy.
+
+### Attempt 2: Learned decision tree on structural/lexical features
+- Approach: spaCy-derived features (has_number, hedge_count, superlative_lexical,
+  absence_count, definitional_count, certainty_inflator_count, starts_with_verb,
+  has_comparison_word, claim_length) fed into a DecisionTreeClassifier.
+- Result: 33% accuracy (7/21) on heldout.
+- Diagnosis: feature importances showed `claim_length` dominating (0.401) — an incidental
+  artifact of the 42-row prototype set, not a real linguistic signal. Dataset too small
+  (~10 examples/class) for a learned model to separate real patterns from noise.
+
+### Attempt 3: Hand-coded rule cascade (same features, manual if/elif logic per Rule 1-3)
+- Result: 23.8% heldout accuracy, and critically, only 42.9% accuracy on the PROTOTYPE
+  set itself (the clean, unambiguous examples) — meaning the rules were wrong, not just
+  under-generalizing. 47.6% abstention rate (too high — indicates trigger words rarely
+  fire, not that claims are genuinely ambiguous).
+- Diagnosis (per-feature breakdown against true labels): lexical/keyword triggers only
+  catch a minority of true positives per class. E.g. `definitional_count` fired on just
+  3 of ~13 true-A examples — most A claims describe a fixed mechanism in paraphrase
+  ("self-attention calculates how patches relate to one another") with no literal
+  "stands for"/"refers to" phrasing to match. Similarly, class B contains two distinct
+  sub-types (numeric claims vs. verifiable-non-numeric claims like "Gate ensures v2
+  cannot go live automatically") that no single lexical feature unifies.
+
+### Conclusion
+All three approaches (semantic similarity, learned structural model, hand-coded lexical
+rules) fail for the same underlying reason: the A/B/C/D/N taxonomy is defined by semantic
+*function* (is this checkable? does it describe a fixed mechanism? is it a value
+judgment?), not by surface vocabulary, topic, or length — and none of surface-level
+methods generalize across paraphrase. Next step: pivot Stage 1 classification to an
+LLM-prompted classifier (given class definitions + Rule 1-3 tie-breakers, output label +
+justification), validated against the same 64-row set.

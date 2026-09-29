@@ -240,11 +240,41 @@ is adapted from the literature above.
   sub-types (numeric claims vs. verifiable-non-numeric claims like "Gate ensures v2
   cannot go live automatically") that no single lexical feature unifies.
 
-### Conclusion
-All three approaches (semantic similarity, learned structural model, hand-coded lexical
-rules) fail for the same underlying reason: the A/B/C/D/N taxonomy is defined by semantic
-*function* (is this checkable? does it describe a fixed mechanism? is it a value
-judgment?), not by surface vocabulary, topic, or length — and none of surface-level
-methods generalize across paraphrase. Next step: pivot Stage 1 classification to an
-LLM-prompted classifier (given class definitions + Rule 1-3 tie-breakers, output label +
-justification), validated against the same 64-row set.
+  ### Attempt 4: KNN and Decision Tree directly on embedding vectors
+- Approach: same bge-small-en-v1.5 embeddings from Attempt 1, but classified via
+  KNeighborsClassifier (k=1,3,5) and DecisionTreeClassifier (depth=3,5,None) instead
+  of prototype-centroid matching.
+- Result: best case 28.6% accuracy (KNN k=5, 6/21) — all six configurations landed in
+  the 19-29% band, statistically indistinguishable from Attempts 1 and 3.
+- Diagnosis: confirms the ceiling is the embedding space itself, not the algorithm on
+  top of it. Four different methods (prototype-matching, KNN at three k values, trees
+  at three depths) built on the same vectors all converge to the same ~20-29% accuracy,
+  meaning bge-small's embedding space does not separate claim-type classes regardless
+  of how it's queried. No further algorithmic variation on these embeddings is worth
+  pursuing.
+
+### Decision: Grow dataset + fine-tune a transformer classifier (not LLM-prompted)
+
+- Rejected pivoting Stage 1 classification to an LLM-prompted classifier, despite it
+  requiring zero training data. Rationale: GATE-C's purpose is to catch failure modes
+  (hallucination, ungrounded claims) in AI-generated output — building the fix itself
+  on top of an LLM call creates a circularity/dependency the project is meant to guard
+  against, not lean on.
+- Decision: expand the hand-labeled dataset (currently 64 rows: A=13, B=20, C=6, D=22,
+  N=1) to roughly 300-500 examples total, targeting the underrepresented C and N
+  classes most heavily, then fine-tune a transformer encoder directly on the 5-class
+  task rather than using frozen embeddings + KNN/tree (which Attempts 1-4 showed caps
+  at ~20-29% accuracy regardless of algorithm, since the embedding space separates by
+  topic, not rhetorical claim-type).
+- Model choice: DistilBERT (`distilbert-base-uncased`) over full BERT/RoBERTa —
+  66M params vs 110-125M, lower overfitting risk at this data scale, faster to train,
+  minimal accuracy tradeoff for 5-way sentence classification.
+- Critical sourcing constraint for new examples: deliberately break topic-class
+  correlation. Prior data clustered by conversation/topic (e.g. ViT-definitions source
+  skewed heavily A, TI-outline-image skewed B/D) — this is exactly what let embeddings
+  shortcut on topic instead of learning rhetorical function. New examples must pull
+  multiple classes from each topic/source, and each class from multiple topics/sources,
+  or a fine-tuned model will learn the same shortcut with fewer training epochs.
+- Training plan once data is ready: freeze bottom 6-8 transformer layers, fine-tune
+  top layers + classification head only; proper 70/15/15 train/val/test split (not
+  just P/H); class-weighted loss; early stopping on validation accuracy plateau.

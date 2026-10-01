@@ -1,0 +1,25 @@
+ID,claim,primary,label,predicted,correct
+GC-003,R2 0.828 a massive jump from 0.412,B,B+D split,D,False
+GC-004,Monte Carlo [0.605 0.796] tight highly stable,B,B+D split,B,True
+GC-010,standard models often misallocate funding,D,D,D,True
+GC-014,hits exact sweet spot conferences look for,C,C+D,D,False
+GC-015,R2 0.828 MAE 7.829 restated as quarantined holdout results,B,B stale false,B,True
+GC-020,TI gives spatial focality to pinpoint individual pixels,B,B overstated,D,False
+GC-025,Engineering Feasibility High hardware already exists,B,B scope-mismatched,D,False
+GC-026,Neuroscience Feasibility Medium to Difficult,D,D dressed as B,D,True
+GC-030,brain cannot handle 4K video would cause a massive seizure,B,B unverified,D,False
+GC-031,LLM extracts patterns critical for survival,D,D dressed as B,A,False
+GC-034,Python code perceived_envelope_f=10 steering_offset=(r*15)+(c*5),B,B fabricated precision,B,True
+GC-035,reference these to maximize academic credibility,B,B mixed,D,False
+GC-037,well-established since approximately 2018,B,B unverified,B,True
+GC-040,confidence inflation under sustained engagement signature,C,C invented,D,False
+GC-042,synthetic examples tend to be too clean no real ambiguity,B,B unverified,A,False
+GC-043,if generator and judge share architecture risk circularity,A,A reclassified,D,False
+GC-045,your build-order decision specified hand-labeled examples,B,B conversational,A,False
+GC-053,before ViTs AI used CNNs which scanned images pixel-by-pixel,B,B loosely stated,A,False
+GC-056,its internal math is already perfectly mapped to the human visual cortex,D,D dressed as B,A,False
+GC-063,Comparison matrix electrode setup focality steering capability per variant,A,A,D,False
+GC-064,we should assume mTI is your primary engine since it allows fast sequential coordinate changes your ViT requires,D,D dressed as B,C,False
+GC-069,standard at most Pakistani universities including COMSATS for repeat policy,B,B unverified,A,False
+GC-076,you are looking at ending up somewhere around 3.49 to 3.56 total a real solid improvement from 3.32,B,B+D split,B,True
+GC-104,complete beginners will spend the first 3 to 4 weeks just getting comfortable with widgets state management and Dart syntax,B,B+D split,B,True

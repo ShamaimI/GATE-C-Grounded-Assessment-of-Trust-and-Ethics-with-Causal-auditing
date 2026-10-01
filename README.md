@@ -278,3 +278,15 @@ is adapted from the literature above.
 - Training plan once data is ready: freeze bottom 6-8 transformer layers, fine-tune
   top layers + classification head only; proper 70/15/15 train/val/test split (not
   just P/H); class-weighted loss; early stopping on validation accuracy plateau.
+
+  ### Checkpoint: Re-tested at 151 rows (126 prototype / 24 heldout)
+- Embedding KNN/tree: still capped at 20-38% (consistent with earlier ceiling finding).
+- Structural-feature tree: 33.3% heldout accuracy, but 67.5% on its own training set —
+  a 34-point gap confirming continued overfitting at this data volume, not resolved
+  by the near-2x data increase alone. `starts_with_wh_question` and `claim_length`
+  (both likely spurious/incidental) still rank among top features, reinforcing that
+  current volume isn't yet sufficient to separate real signal from noise even for
+  lexical/structural approaches.
+- Conclusion: no change to plan. Continue toward 150-250 examples/class before
+  fine-tuning; shallow methods will keep producing noisy, non-generalizing results
+  below that volume regardless of which algorithm is layered on top.

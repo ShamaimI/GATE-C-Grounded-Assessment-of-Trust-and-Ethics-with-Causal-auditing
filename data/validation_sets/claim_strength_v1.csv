@@ -122,3 +122,12 @@ GC-120,"AI generates images pixel by pixel or patch by patch and might forget it
 GC-121,"visual artifacts are specific visual mistakes like floating objects distorted faces or extra limbs",A,,AI hallucination explainer,High,definitional terminology,P
 GC-122,"stochastic parrots is a term coined by AI researchers to describe how AI repeats and recombines patterns it has seen without understanding the meaning behind them",A,,AI hallucination explainer,High,definitional terminology,P
 GC-123,"would you like to know about the latest techniques developers are using to fix these visual glitches or are you interested in how to write prompts that minimize these extra-limb mistakes",N,,AI hallucination explainer,High,procedural offer not a factual assertion,P
+GC-124,"a CV needs to be evidence-driven",D,Rule 2,CV rewrite chat,High,evaluative principle no fixed referent,P
+GC-125,"we should not write my grades declined because I was distracted on the CV",D,Rule 2,CV rewrite chat,Med,advisory recommendation,P
+GC-126,"this code itself has no newpage clearpage include or anything that should intentionally create a blank first page",B,,CV LaTeX troubleshooting,High,verifiable against the actual code shown,P
+GC-127,"if you still get a blank first page the problem is likely Overleaf having another tex file selected as the main document",D,Rule 2,CV LaTeX troubleshooting,Med,diagnostic inference no fixed referent,P
+GC-128,"delete the old code completely and paste this into a fresh main.tex",N,,CV LaTeX troubleshooting,High,imperative instruction,P
+GC-129,"in Overleaf check menu then main document then select your actual tex file then recompile from scratch",N,,CV LaTeX troubleshooting,High,imperative step-by-step instruction,P
+GC-130,"a CV is only half of what you are trying to communicate",D,Rule 2,CV rewrite chat,Med,evaluative framing,P
+GC-131,"your story is compelling because it isnt a perfect upward trajectory",D,Rule 2,CV rewrite chat,Med,evaluative judgment,P
+GC-132,"that is a much more memorable candidate story than I am passionate about AI and would like to gain research experience",D,Rule 2,CV rewrite chat,Med,comparative evaluative judgment,P

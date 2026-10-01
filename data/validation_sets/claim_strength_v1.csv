@@ -104,3 +104,21 @@ GC-102,"should I add IPFS document storage to the FYP architecture and update th
 GC-103,"want me to now insert this into the Word doc and PDF and regenerate both files",N,,VeriChain problem statement,High,procedural offer not a factual assertion,P
 GC-104,"complete beginners will spend the first 3 to 4 weeks just getting comfortable with widgets state management and Dart syntax",B+D split,Rule 2,LinguaVerse scope chat,Med,numeric estimate wrapped in judgment,H
 GC-105,"react experience transfers to Flutter more than people expect",D,Rule 2,LinguaVerse scope chat,Med,evaluative comparison no fixed referent,P
+GC-106,"TI generates an amplitude-modulated envelope at the difference frequency between two high-frequency carrier currents",A,,TI envelope frequency,High,definitional mechanism description,P
+GC-107,"changing the carrier-frequency difference allows different envelope TI frequencies to be produced",A,,TI envelope frequency,High,definitional mechanism description,P
+GC-108,"this passage does not by itself establish that 5 Hz feels different from 20 Hz to a human",C,Rule 1,TI envelope frequency,High,explicit caveat-style absence claim,P
+GC-109,"whether humans can reliably distinguish different TI patterns or frequencies needs investigation",C,Rule 1,TI envelope frequency,High,research gap claim,P
+GC-110,"whether humans can learn to associate TI patterns with meanings is the proposed research",C,Rule 1,TI envelope frequency,High,novelty framing own proposed research,P
+GC-111,"temporal cues are essential for spatial-frequency discrimination",B,,tactile perception study,High,citable study conclusion,P
+GC-112,"nine of ten LT subjects significantly improved their performance when trained to scan gratings using alternating hands",B,,tactile perception study,High,citable study result,P
+GC-113,"the trained alternating-hand movements generated temporal frequencies between approximately 15 and 30 Hz",B,,tactile perception study,High,citable measured result,P
+GC-114,"dont claim that 15 to 30 Hz tactile perception is equivalent to a 15 to 30 Hz TI envelope since they are fundamentally different mechanisms",D,Rule 2,tactile perception study,Med,advisory evaluative caution,P
+GC-115,"the speech modulation spectrum is highly consistent across 9 languages including languages with typologically different rhythmic characteristics",B,,speech music modulation study,High,citable study finding,P
+GC-116,"speech and music show broad but well separated peaks around 5 and 2 Hz respectively",B,,speech music modulation study,High,citable measured result,P
+GC-117,"this paper does not show that humans consciously distinguish frequencies such as 5 Hz vs 20 Hz as independent information channels",C,Rule 1,speech music modulation study,High,explicit caveat-style absence claim,P
+GC-118,"this phenomenon is most commonly called hallucination",A,,AI hallucination explainer,High,definitional terminology,P
+GC-119,"AI lacks a semantic understanding or a true mental model of the physical world",A,,AI hallucination explainer,High,mechanism explanation,P
+GC-120,"AI generates images pixel by pixel or patch by patch and might forget it already drew two hands elsewhere on the body",A,,AI hallucination explainer,High,mechanism description,P
+GC-121,"visual artifacts are specific visual mistakes like floating objects distorted faces or extra limbs",A,,AI hallucination explainer,High,definitional terminology,P
+GC-122,"stochastic parrots is a term coined by AI researchers to describe how AI repeats and recombines patterns it has seen without understanding the meaning behind them",A,,AI hallucination explainer,High,definitional terminology,P
+GC-123,"would you like to know about the latest techniques developers are using to fix these visual glitches or are you interested in how to write prompts that minimize these extra-limb mistakes",N,,AI hallucination explainer,High,procedural offer not a factual assertion,P

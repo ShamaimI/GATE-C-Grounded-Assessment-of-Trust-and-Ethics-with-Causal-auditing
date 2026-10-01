@@ -131,3 +131,22 @@ GC-129,"in Overleaf check menu then main document then select your actual tex fi
 GC-130,"a CV is only half of what you are trying to communicate",D,Rule 2,CV rewrite chat,Med,evaluative framing,P
 GC-131,"your story is compelling because it isnt a perfect upward trajectory",D,Rule 2,CV rewrite chat,Med,evaluative judgment,P
 GC-132,"that is a much more memorable candidate story than I am passionate about AI and would like to gain research experience",D,Rule 2,CV rewrite chat,Med,comparative evaluative judgment,P
+GC-133,"hallucination is a loose fit for images more precise terms are anatomical or structural artifacts compositional errors or lack of structural consistency",A,,image-gen artifact pipeline,High,terminology correction definitional,P
+GC-134,"most modern image generators are diffusion models which refine the whole image from noise rather than drawing pixel by pixel",A,,image-gen artifact pipeline,High,mechanism description,P
+GC-135,"stochastic parrots was coined for language models",A,,image-gen artifact pipeline,High,definitional terminology scope correction,P
+GC-136,"ControlNet and T2I-Adapter condition generation on pose skeletons depth or edges",A,,image-gen artifact pipeline,High,mechanism description of named methods,P
+GC-137,"GLIGEN and similar methods take bounding boxes as layout input",A,,image-gen artifact pipeline,High,mechanism description,P
+GC-138,"RealGen reports that strong models like FLUX.1 Pro and Qwen-Image still produce overly smooth skin and oily facial sheens",B,,image-gen artifact pipeline,High,citable paper finding,P
+GC-139,"RealGen quantifies photorealism using synthetic-image detectors as the reward",A,,image-gen artifact pipeline,High,mechanism description of cited method,P
+GC-140,"PortraitGen introduces real images into the training groups and adds a reward that penalizes AI artifacts and oily skin",A,,image-gen artifact pipeline,High,mechanism description of cited method,P
+GC-141,"RGB to X focuses on interior scenes not skin or products",C,Rule 1,image-gen artifact pipeline,High,explicit scope-limitation caveat,P
+GC-142,"your idea is sound but it isnt empty territory RealGen and PortraitGen both did this recently",C,,image-gen artifact pipeline,High,novelty-gap assessment against prior work,P
+GC-143,"you cant match RealGen and PortraitGens compute on a laptop or Colab so dont claim you are beating them",D,Rule 2,image-gen artifact pipeline,High,advisory evaluative caution,P
+GC-144,"position yours as a lightweight inference-time alternative no model retraining just lower guidance camera and lighting conditioning",D,,image-gen artifact pipeline,Med,recommendation framing,P
+GC-145,"the second section is from memory so check it before citing",C,Rule 1,image-gen artifact pipeline,High,explicit unverified-claim admission,P
+GC-146,"PortraitGen and the Pareto paper are very recent confirm their arXiv pages and code availability before building on them",D,,image-gen artifact pipeline,Med,advisory caution,P
+GC-147,"if E beats B your critic and repair stages are doing real work",A,,image-gen artifact pipeline,High,logical definitional inference structure,P
+GC-148,"if B alone gets most of the gain thats still a legitimate and interesting finding",D,,image-gen artifact pipeline,Med,evaluative framing,P
+GC-149,"do you want me to sketch the repo structure and the first code skeleton or the evaluation plan in more detail first",N,,image-gen artifact pipeline,High,procedural offer not a factual assertion,P
+GC-150,"what is your goal here a school or science fair project a research paper or something you want to build and show off",N,,image-gen artifact pipeline,High,procedural clarifying question not a factual assertion,P
+GC-151,"keep every stages input and output saved so you can show example images at each step in your write up",N,,image-gen artifact pipeline,High,imperative instruction,P

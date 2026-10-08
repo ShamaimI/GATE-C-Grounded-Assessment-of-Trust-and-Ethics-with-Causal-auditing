@@ -1,4 +1,17 @@
+# GATE-C: Grounded Assessment of Trust and Ethics, with Causal Auditing
 
+GATE-C is a framework for detecting hallucination, sycophancy, and confidence
+miscalibration in AI-generated responses, with a causal-inference layer that
+audits *when* and *why* these failures systematically occur.
+
+The pipeline is built by combining and connecting methodologies validated in
+existing research (below), rather than designing each stage from scratch —
+the novel contribution is the specific chaining of these techniques into one
+end-to-end audit pipeline (see "How the Pipeline Connects" at the bottom).
+
+---
+
+## Pipeline Overview
 ---
 
 ## Stage 0 — Guided Elicitation

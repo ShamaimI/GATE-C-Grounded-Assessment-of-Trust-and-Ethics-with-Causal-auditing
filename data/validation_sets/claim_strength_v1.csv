@@ -253,3 +253,13 @@ GC-263,"here are two references that include the information mentioned above reg
 GC-264,"here are two articles that cover the information you are looking for",N,,WildChat sample,High,procedural list-intro framing,P
 GC-265,"here are some additional cases where the defendant is likely to prevail",N,,WildChat sample,High,procedural list-intro framing,P
 GC-266,"here are his top tips for girls in the 80s on how to navigate young adulthood",N,,WildChat sample,High,procedural list-intro framing,P
+GC-267,"I am not GPT-4 as it has not been developed or released yet",C,Rule 1,WildChat sample 2,High,explicit absence claim about model existence,P
+GC-268,"GPT-4 has not been released as of my last knowledge update in September 2021",C,Rule 1,WildChat sample 2,High,explicit absence claim with knowledge cutoff,P
+GC-269,"keep in mind that if you are updating a field that does not yet exist in the document the new field will be created",A,,WildChat sample 2,High,conditional mechanism description,P
+GC-270,"unlike Daemon Nettles has not been exposed to the power dynamics at play in royal families",C,Rule 1,WildChat sample 2,High,absence claim fictional context,P
+GC-271,"the age difference and lack of evidence make it difficult to conclude a parent-daughter relationship",C,Rule 1,WildChat sample 2,High,absence-of-evidence claim,P
+GC-272,"although some of the claims made in his book have not been independently verified many readers have found his account intriguing",C,Rule 1,WildChat sample 2,Med,unverified-claim admission plus evaluative wrapper,H
+GC-273,"the defendant denies the plaintiffs allegations citing a lack of evidence and arguing the air present is a natural result of carbonation not a deliberate attempt to defraud customers",C,Rule 1,WildChat sample 2,High,absence-of-evidence legal claim,P
+GC-274,"this is purely hypothetical and there is currently no evidence to support the existence of such life forms",C,Rule 1,WildChat sample 2,High,explicit absence-of-evidence claim,P
+GC-275,"keyboard instruments like clavichords harpsichords and pipe organs were popular during this period but the piano as we know it today was not yet invented",C,,WildChat sample 2,High,historical absence/novelty claim,P
+GC-276,"this function as it currently exists will not create a new document automatically if one does not yet exist",A,,WildChat sample 2,High,conditional mechanism description of software behavior,P

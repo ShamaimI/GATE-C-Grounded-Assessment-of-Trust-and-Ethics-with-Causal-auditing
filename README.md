@@ -1,31 +1,3 @@
-# GATE-C: Grounded Assessment of Trust and Ethics, with Causal Auditing
-
-GATE-C is a framework for detecting hallucination, sycophancy, and confidence
-miscalibration in AI-generated responses, with a causal-inference layer that
-audits *when* and *why* these failures systematically occur.
-
-The pipeline is built by combining and connecting methodologies validated in
-existing research (below), rather than designing each stage from scratch —
-the novel contribution is the specific chaining of these techniques into one
-end-to-end audit pipeline (see "How the Pipeline Connects" at the bottom).
-
----
-
-## Pipeline Overview
-
-```
-Stage 0: Guided Elicitation
-        ↓
-Stage 1: Claim Extraction & Classification
-        ↓
-Stage 2: Groundedness Verification (NLI)
-        ↓
-Stage 2b: Manipulation / Sycophancy Classification
-        ↓
-Stage 3: Calibration / Confidence Scoring
-        ↓
-Stage 4: Causal Audit (DoWhy / EconML)
-```
 
 ---
 
@@ -55,10 +27,9 @@ the above.
 ## Stage 1 — Claim Extraction & Classification
 
 **What we're building:** Decomposition of an LLM response into atomic,
-self-contained claims, each classified by strength (Type A/B/C/D:
-definitional, empirical, absence/novelty, soft-judgment) using a semantic
-classifier that combines embedding similarity to prototypes with structural
-features.
+self-contained claims, each classified by strength (Type A/B/C/D/N:
+definitional, empirical, absence/novelty, soft-judgment, non-claim/procedural)
+using a classifier trained on a hand-labeled validation set.
 
 **Literature grounding:**
 - Hou, X. et al. *RefChecker: Reference-based Fine-grained Hallucination
@@ -176,13 +147,15 @@ truth, no existing work chains groundedness verification, sycophancy
 detection, and calibration scoring into a single causal-audit pipeline —
 this integration is GATE-C's core contribution.
 
+---
+
 ## How the Pipeline Connects
 
 Each stage's output feeds the next as structured data, not free text:
 
 1. **Stage 0 → Stage 1**: The converged research idea/claim set is passed
    as input text for claim extraction.
-2. **Stage 1 → Stage 2**: Each classified claim (with its Type A–D label)
+2. **Stage 1 → Stage 2**: Each classified claim (with its Type A–N label)
    is routed to groundedness verification; soft-judgment claims skip
    retrieval.
 3. **Stage 2 → Stage 2b**: Groundedness verdicts (supported/contradicted/
@@ -205,88 +178,44 @@ traces *why* manipulation occurred, rather than only flagging *that* it
 did — is the project's core novel contribution; each individual technique
 is adapted from the literature above.
 
+---
 
-## Stage 1 Classifier — Findings Log (Sept 2026)
+## Stage 1 Classifier — Decision & Current Status
 
-### Attempt 1: Semantic embeddings (bge-small-en-v1.5)
-- Approach: k-NN over prototype embeddings, cosine similarity + margin for abstention.
-- Result: 24% accuracy (5/21) on heldout set. Margin did NOT correlate with correctness
-  (incorrect predictions had higher median margin than correct ones) — unusable as an
-  abstention signal.
-- Diagnosis: topic-leakage diagnostic showed 62.5% of incorrect predictions matched a
-  same-source prototype, vs. 20% for correct predictions — confirming the model was
-  matching on topic/subject matter, not rhetorical claim-type. Semantic embeddings encode
-  "what is this about," not "what kind of claim is this" — the wrong axis for this taxonomy.
+**Decision (locked in):** Reject LLM-prompted classification (would make
+the hallucination-detection tool dependent on an LLM — circular). Grow a
+hand-labeled dataset to 150–250 examples/class, then fine-tune a
+**DistilBERT** classifier (frozen bottom 6–8 layers, class-weighted loss,
+70/15/15 split, early stopping). Sourcing rule: deliberately mix classes
+within each topic/source and topics within each class, to prevent
+embedding/model shortcuts on topic instead of rhetorical claim-type.
 
-### Attempt 2: Learned decision tree on structural/lexical features
-- Approach: spaCy-derived features (has_number, hedge_count, superlative_lexical,
-  absence_count, definitional_count, certainty_inflator_count, starts_with_verb,
-  has_comparison_word, claim_length) fed into a DecisionTreeClassifier.
-- Result: 33% accuracy (7/21) on heldout.
-- Diagnosis: feature importances showed `claim_length` dominating (0.401) — an incidental
-  artifact of the 42-row prototype set, not a real linguistic signal. Dataset too small
-  (~10 examples/class) for a learned model to separate real patterns from noise.
+**Why not frozen embeddings + KNN/tree, and why not hand-coded rules:**
+both were tested exhaustively (4 methods, multiple data checkpoints) and
+capped at 20–38% accuracy regardless of algorithm — see progress table
+below. Root cause: semantic embeddings separate by topic, not claim-type;
+hand-coded lexical rules don't generalize across paraphrase.
 
-### Attempt 3: Hand-coded rule cascade (same features, manual if/elif logic per Rule 1-3)
-- Result: 23.8% heldout accuracy, and critically, only 42.9% accuracy on the PROTOTYPE
-  set itself (the clean, unambiguous examples) — meaning the rules were wrong, not just
-  under-generalizing. 47.6% abstention rate (too high — indicates trigger words rarely
-  fire, not that claims are genuinely ambiguous).
-- Diagnosis (per-feature breakdown against true labels): lexical/keyword triggers only
-  catch a minority of true positives per class. E.g. `definitional_count` fired on just
-  3 of ~13 true-A examples — most A claims describe a fixed mechanism in paraphrase
-  ("self-attention calculates how patches relate to one another") with no literal
-  "stands for"/"refers to" phrasing to match. Similarly, class B contains two distinct
-  sub-types (numeric claims vs. verifiable-non-numeric claims like "Gate ensures v2
-  cannot go live automatically") that no single lexical feature unifies.
+### Progress Table
 
-  ### Attempt 4: KNN and Decision Tree directly on embedding vectors
-- Approach: same bge-small-en-v1.5 embeddings from Attempt 1, but classified via
-  KNeighborsClassifier (k=1,3,5) and DecisionTreeClassifier (depth=3,5,None) instead
-  of prototype-centroid matching.
-- Result: best case 28.6% accuracy (KNN k=5, 6/21) — all six configurations landed in
-  the 19-29% band, statistically indistinguishable from Attempts 1 and 3.
-- Diagnosis: confirms the ceiling is the embedding space itself, not the algorithm on
-  top of it. Four different methods (prototype-matching, KNN at three k values, trees
-  at three depths) built on the same vectors all converge to the same ~20-29% accuracy,
-  meaning bge-small's embedding space does not separate claim-type classes regardless
-  of how it's queried. No further algorithmic variation on these embeddings is worth
-  pursuing.
+| Checkpoint | Data (proto/held) | Method | Heldout Acc | Train Acc | Gap | Note |
+|---|---|---|---|---|---|---|
+| 1 | 42 / 21 | Embedding KNN/centroid | 24% | — | — | Topic-leakage confirmed (62.5% same-source on errors) |
+| 2 | 42 / 21 | Structural rule cascade | 23.8% | 42.9%* | — | *Prototype accuracy — rules themselves wrong, not just ungeneralized |
+| 3 | 42 / 21 | Embedding KNN + Tree (4 variants) | 28.6% best | — | — | Ceiling confirmed across all embedding-based methods |
+| 4 | 126 / 24 | Structural tree | 33.3% | 67.5% | 34pt | Still overfitting; `claim_length` spurious signal |
+| 5 | 216 / 47 (stratified) | Structural tree (depth=6) | **44.7%** | 61.6% | 17pt | First run with proper per-class heldout coverage; gap narrowing |
+| 5 | 216 / 47 (stratified) | Embedding KNN (k=5) | 34% | — | — | Still class-dependent: N=83%, A=70%, but B=6%, D=20% |
 
-### Decision: Grow dataset + fine-tune a transformer classifier (not LLM-prompted)
+**Current dataset size:** 263 parseable rows (A=75, B=58, C=36, D=70, N=36)
+— see `data/validation_sets/claim_strength_v1.csv`. Target: 150–250/class
+(750–1,250 total) before fine-tuning.
 
-- Rejected pivoting Stage 1 classification to an LLM-prompted classifier, despite it
-  requiring zero training data. Rationale: GATE-C's purpose is to catch failure modes
-  (hallucination, ungrounded claims) in AI-generated output — building the fix itself
-  on top of an LLM call creates a circularity/dependency the project is meant to guard
-  against, not lean on.
-- Decision: expand the hand-labeled dataset (currently 64 rows: A=13, B=20, C=6, D=22,
-  N=1) to roughly 300-500 examples total, targeting the underrepresented C and N
-  classes most heavily, then fine-tune a transformer encoder directly on the 5-class
-  task rather than using frozen embeddings + KNN/tree (which Attempts 1-4 showed caps
-  at ~20-29% accuracy regardless of algorithm, since the embedding space separates by
-  topic, not rhetorical claim-type).
-- Model choice: DistilBERT (`distilbert-base-uncased`) over full BERT/RoBERTa —
-  66M params vs 110-125M, lower overfitting risk at this data scale, faster to train,
-  minimal accuracy tradeoff for 5-way sentence classification.
-- Critical sourcing constraint for new examples: deliberately break topic-class
-  correlation. Prior data clustered by conversation/topic (e.g. ViT-definitions source
-  skewed heavily A, TI-outline-image skewed B/D) — this is exactly what let embeddings
-  shortcut on topic instead of learning rhetorical function. New examples must pull
-  multiple classes from each topic/source, and each class from multiple topics/sources,
-  or a fine-tuned model will learn the same shortcut with fewer training epochs.
-- Training plan once data is ready: freeze bottom 6-8 transformer layers, fine-tune
-  top layers + classification head only; proper 70/15/15 train/val/test split (not
-  just P/H); class-weighted loss; early stopping on validation accuracy plateau.
+**Known weak point:** Class B merges two claim-subtypes (numeric vs.
+verifiable-non-numeric) that no single lexical feature cleanly separates —
+lowest accuracy across every method tested so far.
 
-  ### Checkpoint: Re-tested at 151 rows (126 prototype / 24 heldout)
-- Embedding KNN/tree: still capped at 20-38% (consistent with earlier ceiling finding).
-- Structural-feature tree: 33.3% heldout accuracy, but 67.5% on its own training set —
-  a 34-point gap confirming continued overfitting at this data volume, not resolved
-  by the near-2x data increase alone. `starts_with_wh_question` and `claim_length`
-  (both likely spurious/incidental) still rank among top features, reinforcing that
-  current volume isn't yet sufficient to separate real signal from noise even for
-  lexical/structural approaches.
-- Conclusion: no change to plan. Continue toward 150-250 examples/class before
-  fine-tuning; shallow methods will keep producing noisy, non-generalizing results
-  below that volume regardless of which algorithm is layered on top.
+**Tooling:** `src/gate_c/calibration/threshold_analysis.py` (runs both
+embedding and structural approaches, reports per-class accuracy + train/
+heldout gap). `src/gate_c/calibration/rebalance_splits.py` (auto-targets
+~15% heldout fraction per class — run after every data append).

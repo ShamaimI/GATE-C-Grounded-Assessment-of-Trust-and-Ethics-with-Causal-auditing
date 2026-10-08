@@ -223,3 +223,33 @@ GC-233,"the robot is a delightful mix of sturdy metal craftsmanship and sleek mo
 GC-234,"this is a simple outline of how to create a basic login page and connect it to a server using Retrofit",N,,WildChat sample,High,procedural framing not a factual assertion,P
 GC-235,"try incremental or decremental numbers if the passcode is a series of numbers try guessing them incrementally or decrementally",N,,WildChat sample,High,imperative instruction,P
 GC-236,"this is a basic outline and a starting point for creating a FiveM Lua volleyball game mode based on the video you provided",N,,WildChat sample,High,procedural framing not a factual assertion,P
+GC-237,"as of now we have not yet achieved AGI",C,Rule 1,WildChat sample,High,absence claim about field state,P
+GC-238,"our research involves adopting a novel approach to key class identification that leverages the unique properties of complex networks",C,,WildChat sample,High,novelty framing of own research,P
+GC-239,"the release mentions an experimental model which implies it is still in testing or development and thus may not yet be fully capable of learning on its own",C,,WildChat sample,Med,hedged absence/capability-gap inference,P
+GC-240,"meeting Cupa my mothers close friend for the first time was a truly wonderful and memorable experience",D,Rule 2,WildChat sample,Med,evaluative narrative framing,P
+GC-241,"moving out on your own for the first time can be a little overwhelming but it doesnt have to be stressful if you plan ahead",D,Rule 2,WildChat sample,Med,advisory evaluative framing,P
+GC-242,"we are on the brink of a crisis unlike anything ever faced by mankind",D,Rule 2,WildChat sample,Med,hyperbolic evaluative fictional dialogue,P
+GC-243,"the study discusses strategies to integrate analytics within the SCM curriculum and reduce the gap between academia and industry perspectives",C,Rule 1,WildChat sample,High,explicit gap-framing claim,P
+GC-244,"the authors highlight the importance of domain knowledge and the novel application of machine learning in predicting supply disruptions",C,,WildChat sample,High,novelty framing of cited work,P
+GC-245,"2022 introduced a novel deep learning-based model PLR-ALSTM-NN which outperformed traditional neural networks and machine learning tools in predicting future financial market trends",B+C split,Rule 1,WildChat sample,Med,novelty framing plus measurable comparison,H
+GC-246,"the plaintiff has no evidence to support the claim of emotional distress and financial loss",C,Rule 1,WildChat sample,High,absence-of-evidence claim,P
+GC-247,"let me take you on a journey to the mystical realm of Enchantara",N,,WildChat sample,High,procedural narrative framing not a factual assertion,P
+GC-248,"let me share with you a detailed personalized idea that should meet all of your requirements",N,,WildChat sample,High,procedural offer,P
+GC-249,"let me know and I will provide you with a script concept and some sample dialogue",N,,WildChat sample,High,procedural offer,P
+GC-250,"here are some brainstorming ideas for creative ice cream shapes",N,,WildChat sample,High,procedural list-intro framing,P
+GC-251,"here are the steps to help you become a successful social media manager",N,,WildChat sample,High,procedural list-intro framing,P
+GC-252,"here are my observations and suggestions",N,,WildChat sample,High,procedural list-intro framing,P
+GC-253,"first let us discuss the universal aspects",N,,WildChat sample,High,procedural framing,P
+GC-254,"let me know if you still have any issues or errors",N,,WildChat sample,High,procedural offer,P
+GC-255,"here are the pros and cons of using such an arrangement",N,,WildChat sample,High,procedural list-intro framing,P
+GC-256,"here are some steps you can follow to try and fix this issue",N,,WildChat sample,High,procedural list-intro framing,P
+GC-257,"let me know if you need any more advice I am always here to help",N,,WildChat sample,High,procedural offer,P
+GC-258,"here are some suggested things to prepare before and after moving out",N,,WildChat sample,High,procedural list-intro framing,P
+GC-259,"here are a few areas that could be a good fit for you",N,,WildChat sample,High,procedural list-intro framing,P
+GC-260,"here are some strategies you can try",N,,WildChat sample,High,procedural list-intro framing,P
+GC-261,"here are some suggestions on how to approach the conversation",N,,WildChat sample,High,procedural list-intro framing,P
+GC-262,"let me provide a more formal and precise mathematical definition of a winning position in a combinatorial game",N,,WildChat sample,High,procedural offer,P
+GC-263,"here are two references that include the information mentioned above regarding viable count methods and total count methods",N,,WildChat sample,High,procedural list-intro framing,P
+GC-264,"here are two articles that cover the information you are looking for",N,,WildChat sample,High,procedural list-intro framing,P
+GC-265,"here are some additional cases where the defendant is likely to prevail",N,,WildChat sample,High,procedural list-intro framing,P
+GC-266,"here are his top tips for girls in the 80s on how to navigate young adulthood",N,,WildChat sample,High,procedural list-intro framing,P

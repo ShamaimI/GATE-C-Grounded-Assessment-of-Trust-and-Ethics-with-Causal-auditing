@@ -150,3 +150,76 @@ GC-148,"if B alone gets most of the gain thats still a legitimate and interestin
 GC-149,"do you want me to sketch the repo structure and the first code skeleton or the evaluation plan in more detail first",N,,image-gen artifact pipeline,High,procedural offer not a factual assertion,P
 GC-150,"what is your goal here a school or science fair project a research paper or something you want to build and show off",N,,image-gen artifact pipeline,High,procedural clarifying question not a factual assertion,P
 GC-151,"keep every stages input and output saved so you can show example images at each step in your write up",N,,image-gen artifact pipeline,High,imperative instruction,P
+GC-164,"Enchantara is a small enchanted island located in a dimension parallel to Earth",A,,WildChat sample,High,definitional fictional worldbuilding,P
+GC-165,"The Lunar Lux city is a blend of sci-fi and fantasy a place where technology and magic coexist",A,,WildChat sample,High,definitional fictional worldbuilding,P
+GC-166,"the surrounding environment consists of fusions between modern buildings and Victorian-inspired architecture",A,,WildChat sample,High,definitional description,P
+GC-167,"If P[A|B] = 1 it means that whenever event B happens event A must also happen",A,,WildChat sample,High,clean probability definition,P
+GC-168,"The Femme Fatale Network consists of spies thieves entertainers and other skilled dames",A,,WildChat sample,High,definitional fictional worldbuilding,P
+GC-169,"Wind shear is a difference in wind speed or direction at different heights in the atmosphere",A,,WildChat sample,High,clean textbook definition,P
+GC-170,"A hurricane is a large and powerful tropical cyclone that contains a core of low-pressure organized around the eye",A,,WildChat sample,High,clean textbook definition,P
+GC-171,"in TrueNAS you can configure a hot spare to be a global hot spare which means its not tied to a specific device or vDev",A,,WildChat sample,High,technical mechanism definition,P
+GC-172,"the highest caste beneath the god king consists of priests and advisors",A,,WildChat sample,High,definitional fictional worldbuilding,P
+GC-173,"it consists of several cities and villages encompassed within a landscape",A,,WildChat sample,High,definitional description,P
+GC-174,"the highest class consists of priests and religious leaders followed by nobles warriors traders craftsmen and farmers",A,,WildChat sample,High,definitional hierarchy description,P
+GC-175,"he is a gentle sensitive and artistic character who loves taking care of plants and flowers",A,,WildChat sample,High,fictional character definitional description,P
+GC-176,"he is a caring supportive and responsible figure within the group",A,,WildChat sample,High,fictional character definitional description,P
+GC-177,"items is a list of items and item is the specific item we want to check if it is present in the list",A,,WildChat sample,High,code variable definition,P
+GC-178,"if we find a match we return true as it means the item we are looking for is present in the list",A,,WildChat sample,High,code logic mechanism description,P
+GC-179,"if we reach the end of the loop without finding the item it means the item is not present in the list",A,,WildChat sample,High,code logic mechanism description,P
+GC-180,"if the item is a table we recursively call the isItemPresent function passing the table as the new list to search",A,,WildChat sample,High,code logic mechanism description,P
+GC-181,"this retro futuristic casino is a massive self-contained city floating in the vast expanse of a star-filled sky",A,,WildChat sample,High,definitional fictional worldbuilding,P
+GC-182,"she is a Goddess of fortune with shimmering hair that flows like liquid silver",A,,WildChat sample,High,fictional character definitional description,P
+GC-183,"as the Hero of Kamura is a player-created character their personality is largely shaped by individual choices and playstyle",A,,WildChat sample,High,mechanism description of game system,P
+GC-184,"the Hero of Kamura is a local from Kamura Village an idyllic settlement with a rich history of hunting",A,,WildChat sample,High,fictional character definitional description,P
+GC-185,"the temperature is a parameter that regulates the randomness of the models output",A,,WildChat sample,High,clean ML concept definition,P
+GC-186,"Justin is a determined and focused individual fiercely dedicated to his role as a skilled hunter",A,,WildChat sample,High,fictional character definitional description,P
+GC-187,"he is a strong-willed leader guiding his teammates with well-thought-out strategies",A,,WildChat sample,High,fictional character definitional description,P
+GC-188,"his preferred weapon Sitara is a Chaotic Gore Magala sword and shield imbued with the essence of his previous monster partner",A,,WildChat sample,High,fictional item definitional description,P
+GC-189,"the Hero of Kamura is a diligent and fast-learning apprentice huntress",A,,WildChat sample,High,fictional character definitional description,P
+GC-190,"Artificial General Intelligence AGI refers to a type of artificial intelligence that can perform any intellectual task that a human being can do",A,,WildChat sample,High,clean AI terminology definition,P
+GC-191,"Nami is a complex character with a multifaceted personality in the anime series One Piece",A,,WildChat sample,High,fictional character definitional description,P
+GC-192,"The World is a powerful and versatile Stand that can stop time for a few seconds",A,,WildChat sample,High,fictional mechanism definitional description,P
+GC-193,"yours consists of a light blue short-sleeved button-up shirt and matching pants",A,,WildChat sample,High,definitional description,P
+GC-194,"the room in which you find yourselves is a combination of styles blending mid-century design with futuristic innovation",A,,WildChat sample,High,definitional description,P
+GC-195,"a graviton is a hypothetical elementary particle in the Standard Model of particle physics",A,,WildChat sample,High,clean physics definition,P
+GC-196,"a gravitational ride is a type of amusement ride that uses the force of gravity to provide thrills for riders",A,,WildChat sample,High,clean definitional description,P
+GC-197,"this poem consists of verses where every word starts with the letter y as you asked",A,,WildChat sample,High,definitional structural description,P
+GC-198,"AnthemScore is a paid software that allows you to transcribe music from MP3 to MIDI and sheet music",B,,WildChat sample,High,verifiable factual software claim,P
+GC-199,"the main storage pool in this configuration consists of two vdevs with three mirrors each",B,,WildChat sample,High,verifiable technical specification,P
+GC-200,"third mirrored vdev 3x 14TB disks where the first two form a mirror and the third is a single disk with no mirror",B,,WildChat sample,High,verifiable technical specification,P
+GC-201,"since the hot spare is a 14TB disk it should have sufficient capacity to replace 14TB 12TB and 8TB disks",B,,WildChat sample,High,verifiable technical claim,P
+GC-202,"shifting realities is a concept that has become popular on social media particularly on platforms like TikTok",B,,WildChat sample,Med,verifiable social trend claim,P
+GC-203,"Trekonomics The Economics of Star Trek written by Manu Saadia is a book that explores economic principles behind the series",B,,WildChat sample,High,verifiable factual claim about real book,P
+GC-204,"Conversations with God is a series of books written by Neale Donald Walsch",B,,WildChat sample,High,verifiable factual claim,P
+GC-205,"JUICE is a planned spacecraft of the European Space Agency with a mission to study three of Jupiters Galilean moons in the 2030s",B,,WildChat sample,High,verifiable factual claim real mission,P
+GC-206,"Floor Jansen is a Dutch singer who is currently the lead vocalist of the symphonic metal band Nightwish",B,,WildChat sample,High,verifiable factual claim,P
+GC-207,"Geralt is a tall and lean figure standing at around 6 feet 2 inches",B,,WildChat sample,High,numeric claim about fictional character spec,P
+GC-208,"The Grand Budapest Hotel is a 2014 film directed by Wes Anderson which takes place in a fictional location called the Republic of Zubrowka",B,,WildChat sample,High,verifiable factual claim about real film,P
+GC-209,"Dawn Japanese name Hikari is a main character in the Pokemon anime series",B,,WildChat sample,High,verifiable factual claim about real series,P
+GC-210,"she is a young Coordinator from Twinleaf Town in the Sinnoh region and travels with Ash and Brock",B,,WildChat sample,High,verifiable factual claim against canon,P
+GC-211,"The World is a Stand in the manga and anime series JoJos Bizarre Adventure",B,,WildChat sample,High,verifiable factual claim about real series,P
+GC-212,"The World is known for its iconic battle cry Muda Muda Muda which means useless or futile in Japanese",B,,WildChat sample,High,verifiable factual translation claim,P
+GC-213,"Adrenalina is a non-stop action-packed world with a little bit of everything for the thrill-seekers",D,Rule 2,WildChat sample,Med,evaluative marketing-style description,P
+GC-214,"Mysticon is a highly customized magical world where youll embark on a rescue mission",D,Rule 2,WildChat sample,Med,evaluative framing,P
+GC-215,"Enchantara is a world made to be explored with countless ancient secrets hidden treasures and unforgettable moments",D,Rule 2,WildChat sample,Med,evaluative marketing-style description,P
+GC-216,"unrivaled in battle this formidable creature is a ruthless defender with a heart of gold",D,Rule 2,WildChat sample,Med,evaluative superlative framing,P
+GC-217,"the Rathian is a companion like no other always ready to join you on every adventure",D,Rule 2,WildChat sample,Med,evaluative superlative framing,P
+GC-218,"they claim that the case targets Trump by going after his closest associates as a means to weaken him politically",D,,WildChat sample,Med,interpretive claim attributed to others,P
+GC-219,"guessing someones passcode without permission is a violation of their privacy and could result in legal consequences",D,Rule 2,WildChat sample,High,normative evaluative claim,P
+GC-220,"this is a major concern as users who are not informed may be providing their private data without understanding the repercussions",D,Rule 2,WildChat sample,Med,evaluative concern framing,P
+GC-221,"targeted advertising is a powerful means of employing insights from neuro-marketing research",D,Rule 2,WildChat sample,Med,evaluative framing,P
+GC-222,"game addiction is a growing concern and is driven significantly by persuasive and deceptive design elements in video games",D,Rule 2,WildChat sample,Med,evaluative causal framing,P
+GC-223,"the collaring ceremony performed shortly after a childs birth is a highly revered event symbolizing entrance into the kingdoms collective consciousness",D,Rule 2,WildChat sample,Med,evaluative framing over worldbuilding,P
+GC-224,"as an AI language model it is difficult to assess the technical abilities of singers as this is a matter of personal preference and taste",D,,WildChat sample,High,explicit uncertainty/evaluative hedge,P
+GC-225,"Floor Jansen is a highly regarded Dutch singer songwriter and vocal coach",D,Rule 2,WildChat sample,Med,evaluative framing on factual identity,P
+GC-226,"Katy Perry on the other hand is a pop singer with undeniable talent",D,Rule 2,WildChat sample,High,evaluative superlative claim,P
+GC-227,"there is a specific length that will give the best results",D,Rule 2,WildChat sample,Med,vague evaluative claim no referent,P
+GC-228,"calculating the length of the iron core in a transformer mathematically is a complex process",D,Rule 2,WildChat sample,Med,evaluative difficulty framing,P
+GC-229,"Geralt is a highly skilled swordsman proficient in a variety of sword-fighting styles",D,Rule 2,WildChat sample,Med,evaluative framing on fictional ability,P
+GC-230,"there is a good chance that Kennedy would have won the reelection in 1964",D,,WildChat sample,Med,speculative counterfactual claim,P
+GC-231,"Justin is a highly proficient sword and shield wielder having honed his skills over years of rigorous training",D,Rule 2,WildChat sample,Med,evaluative framing on fictional ability,P
+GC-232,"this aspect of her personality might make her appear selfish and materialistic but it is a product of her tumultuous history",D,,WildChat sample,Med,interpretive psychological claim,P
+GC-233,"the robot is a delightful mix of sturdy metal craftsmanship and sleek modern design",D,Rule 2,WildChat sample,Med,evaluative aesthetic framing,P
+GC-234,"this is a simple outline of how to create a basic login page and connect it to a server using Retrofit",N,,WildChat sample,High,procedural framing not a factual assertion,P
+GC-235,"try incremental or decremental numbers if the passcode is a series of numbers try guessing them incrementally or decrementally",N,,WildChat sample,High,imperative instruction,P
+GC-236,"this is a basic outline and a starting point for creating a FiveM Lua volleyball game mode based on the video you provided",N,,WildChat sample,High,procedural framing not a factual assertion,P
